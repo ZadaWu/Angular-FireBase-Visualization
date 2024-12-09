@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { CountdownComponent } from './countdown/countdown.component';
+import { HomeComponent } from './home/home.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ProgressBarComponent, CountdownComponent],
+  imports: [RouterOutlet, ProgressBarComponent, CountdownComponent, HomeComponent],
   template: `
     <h1>{{ title }}</h1>
     
@@ -14,7 +15,7 @@ import { CountdownComponent } from './countdown/countdown.component';
     <app-countdown [countdownNumber]="totalCountdown" (onDecrease)="updateProgress($event)" (onComplete)="countDownFinished()"></app-countdown>
     <button (click)="incrementProgress()">增加进度</button>
     <button (click)="resetProgress()">重置进度</button>
-    
+    <app-home></app-home>
     <router-outlet />
   `,
   styleUrl: './app.component.scss'
